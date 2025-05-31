@@ -8,7 +8,7 @@
 ## General
 
 
-(faq-whats-librelane=)
+(faq-whats-librelane)=
 
 ### What is LibreLane?
 
@@ -78,7 +78,7 @@ since 3.5 and a number of internal tape-outs at Efabless Corporation.
 | Architecture | Monolithic | Plugin-based | Monolithic | Plugin-based |
 | Configuration | Tcl Files | Python Files | JSON/Tcl Files | JSON/Tcl/Python Files |
 | Programming Language | GNU Make | Python | Tcl | Type-checked Python |
-| Maintainer | The OpenROAD Project | ZeroASIC | Efabless | Efabless |
+| Maintainer | The OpenROAD Project | ZeroASIC | Efabless | AUCOHL |
 | Dependencies | Separate (Build Scripts) | Separate (Build Scripts) | Bundled | Bundled  |
 | Cloud Service | No | Yes | No | No (Planned) |
 | Proprietary Tool Support | No | Yes | No | Yes (with Plugins) |
