@@ -1,44 +1,38 @@
 !register migration_comparison
 
-# Migrating from LibreLane 1
+# Migrating from OpenLane
 
-Version 2 of LibreLane is a complete re-imagining of LibreLane not just as a
-simple, somewhat customizable flow, but rather as an infrastructure that can
-support innumerable flows.
+LibreLane, having started as OpenLane 2.0, is a complete re-imagining of
+OpenLane not just as a simple, somewhat customizable flow, but rather as an
+infrastructure that can support innumerable flows.
 
 Being rebuilt from the ground up, there is a small learning curve to adopting
-LibreLane 2. This document aims to help those making the jump.
+LibreLane. This document aims to help those making the jump.
 
 ## Why migrate?
 
-At a minimum, the default flow for LibreLane 2, named {flow}`Classic`, is essentially a
-more robust re-implementation of the LibreLane 1 flow that is still entirely
-backwards compatible, with some conveniences:
+At a minimum, the default flow for LibreLane, named {flow}`Classic`, is
+essentially a more robust re-implementation of the OpenLane flow that is still
+entirely backwards compatible, with some conveniences:
 
-```{note}
-While the LibreLane 2 infrastructue is stable, the default LibreLane 2 flow in
-itself is in beta, pending silicon validation, and we still recommend the
-LibreLane 1 flow for use with OpenMPW and chipIgnite. See [the FAQ](#faq-1v2) for
-more information.
-```
 
 * Full configuration validation: if you have a typo, it will be caught, and if
   you accidentally provide a string to a number, it will be caught.
 * More graceful failures: if the design fails mid-flow, because of a more strict
   separation of concerns, you still have access to metrics and reports from all
   previous steps.
-  * In LibreLane 1, they are all extracted at the end.
+  * In OpenLane, they are all extracted at the end.
 * The ability to use command-line flow control options such as `--from`, `--to`,
   `--skip` and `--only`, with the ability to resume from a snapshot of your
   design at certain parts of flows, without worrying about surprises related
   to state variables missing.
 
 ```{figure} ./configurable_flow.webp
-Writing custom flows and steps using LibreLane 2
+Writing custom flows and steps using LibreLane
 ```
 
 Additionally, if you're a more savvy user, a _whole new world_ of possibilities
-await with LibreLane 2. Built around "flows" composed of "steps," LibreLane 2 can
+await with LibreLane. Built around "flows" composed of "steps," LibreLane can
 implement hardware flows for ASIC implementation by relying on basic Python
 object-oriented programming principles, and this naturally allows you to:
 
@@ -52,18 +46,18 @@ object-oriented programming principles, and this naturally allows you to:
 * Access a standardized and more formal form of design metrics based on
   {term}`METRICS2.1`.
 
-For example, using a custom LibreLane 2-based flow, the team over at
+For example, using a custom LibreLane-based flow, the team over at
 [TinyTapeout](https://tinytapeout.com) were able to integrate dozens of tiny
 designs together into a complex chip; leveraging custom flows and custom steps
 to tape-out a complex chip for ChipIgnite.
 
 ## Installation
 
-Like LibreLane 1, installations of LibreLane 2 include all underlying utilities
+Like OpenLane, installations of LibreLane include all underlying utilities
 for the default flow, including but not limited to; Yosys, OpenROAD, Magic, and
 KLayout.
 
-LibreLane 2 uses a deterministic and reproducible environment builder called
+LibreLane uses a deterministic and reproducible environment builder called
 [Nix](https://nixos.org) to both build its underlying utilities and distribute
 them.
 
@@ -86,7 +80,7 @@ Afterwards, you can run an example as follows:
 
 ### Docker-based Installation (Not Preferred)
 
-Docker is still supported if you have it installed from LibreLane 1, although the
+Docker is still supported if you have it installed from OpenLane, although the
 Docker image is built with a Nix environment instead of CentOS. The way it is
 invoked is also much simpler, with the Python script handling mounts and calling
 the image for you, as you can see below:
@@ -115,14 +109,14 @@ manner: `--docker-mount <dir1> [--docker-mount <dir2> [--docker-mount <dir3>]]`.
 ## Designs and Configuration
 
 The first question you may ask is if your existing designs are supported, and
-we're happy to say that, for the most part, the answer is yes! LibreLane 2
-supports about 99% of the config files from LibreLane 1, whether they're written
+we're happy to say that, for the most part, the answer is yes! LibreLane
+supports about 99% of the config files from OpenLane, whether they're written
 in JSON or Tcl, although Tcl is finicky at this point and we recommend rewriting
 them in JSON.
 
 ```{note}
 A small caveat is interactive scripts written in Tcl, however, are not supported
-in LibreLane 2- we've replaced them with Python-based flows, which are much
+in LibreLane- we've replaced them with Python-based flows, which are much
 more flexible and stable: you can check out how to write one under
 {doc}`/usage/writing_custom_flows`.
 ```
@@ -136,14 +130,14 @@ documented them in the following sections for your convenience:
 
 ## Running flows
 
-The command line interface for LibreLane 2 is more streamlined, and entirely
-handled by the LibreLane 2 Python module instead of relying on Makefiles.
+The command line interface for LibreLane is more streamlined, and entirely
+handled by the LibreLane Python module instead of relying on Makefiles.
 
 ```!migration_comparison[bash] ### PDK Installation
 make pdk
 ---
 ---
-LibreLane 2 will automatically download and install the default PDK(s) version
+LibreLane will automatically download and install the default PDK(s) version
 using Volare.
 ```
 
@@ -187,7 +181,7 @@ configuration file automatically.
 
 ## Outputs
 
-Examining outputs for LibreLane 2.0+ is very different compared to previous
+Examining outputs for LibreLane.0+ is very different compared to previous
 versions.
 
 ### Run Folders
@@ -277,7 +271,7 @@ librelane <path to run folder>/resolved.json
 ./error.log
 ./warnings.log
 ---
-In LibreLane 2, the error log lacks the level prefix (`[ERROR]`/`[WARNING]`) in
+In LibreLane, the error log lacks the level prefix (`[ERROR]`/`[WARNING]`) in
 the files themselves.
 ```
 
@@ -287,7 +281,7 @@ the files themselves.
 ./final/metrics.csv
 ./final/metrics.json
 ---
-The CSV table is transposed in comparison to LibreLane 1, i.e., where the fields
+The CSV table is transposed in comparison to OpenLane, i.e., where the fields
 were columns in legacy versions, they have been made into rows into the new
 versions, as metrics may vary greatly depending on the flow.
 
@@ -310,7 +304,7 @@ Temperature,) corner.
 
 ### Viewing Layouts
 
-Instead of relying on an external script similar to LibreLane 1, LibreLane 2
+Instead of relying on an external script similar to OpenLane, LibreLane
 implements flows to allow you to load your designs into a number of the GUI
 tools included with LibreLane.
 
@@ -321,7 +315,7 @@ librelane [--run-tag <run tag>|--last-run] --flow OpenInKLayout <run folder>/res
 ---
 Opening in KLayout is implemented as a one-step flow named, well, {flow}`OpenInKLayout`.
 
-LibreLane 2 allows you to run multiple flows in the same run directory, and thus
+LibreLane allows you to run multiple flows in the same run directory, and thus
 opening the run in KLayout is just another step. When you do so, the last state
 of the design is used as an input, meaning that KLayout will preview the latest
 GDS stream-out in the design.
@@ -333,7 +327,7 @@ python3 ./gui.py --viewer klayout --stage routing --format def <path to run fold
 librelane --with-initial-state <run folder>/*-openroad-detailedrouting/state_out.json --flow OpenInKLayout <run folder>/resolved.json
 ---
 For steps of the flow where there is no GDS view yet, {flow}`OpenInKLayout` will
-preview the DEF view instead. You can tell LibreLane 2 which state to use
+preview the DEF view instead. You can tell LibreLane which state to use
 explicitly, where here we've opted for the output state of the detailed routing
 step.
 ```

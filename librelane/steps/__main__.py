@@ -418,7 +418,7 @@ def create_reproducible(
         * The current working directory
 
     These reproducibles are filesystem-independent, i.e. they can be run
-    on any computer that has the appropriate version of LibreLane 2 installed
+    on any computer that has the appropriate version of LibreLane installed
     (as well as the underlying utility for that specific step.)
 
     The reproducible will report an error if LibreLane is not installed and will

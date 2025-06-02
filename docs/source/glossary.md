@@ -146,7 +146,7 @@ metrics
 [METRICS2.1](https://github.com/ieee-ceda-datc/datc-rdf-Metrics4ML#metrics21-naming-convention)
 
     A naming convention for {term}`metrics` of a design used by {term}`OpenROAD`
-    and LibreLane 2+. LibreLane is responsible for extracting and naming metrics
+    and LibreLane. LibreLane is responsible for extracting and naming metrics
     in a 2.1-compliant format from tools other than OpenROAD.
 
 LEF

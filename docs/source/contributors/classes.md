@@ -9,7 +9,7 @@ the interface.
 
 ## Mutability
 
-LibreLane 2 classes are based on the principle that objects that are passed
+LibreLane classes are based on the principle that objects that are passed
 between contexts are either **immutable** on termination of construction or
 **replicably modifiable**.
 

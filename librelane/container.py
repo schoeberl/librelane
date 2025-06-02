@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-## This file is internal to LibreLane 2 and is not part of the API.
+## This file is internal to LibreLane and is not part of the API.
 import os
 import re
 import uuid

@@ -102,7 +102,7 @@ class PassedDirectoryError(ValueError):
     def __init__(self, config: AnyPath) -> None:
         self.config = str(config)
         super().__init__(
-            "Passing design directories as arguments is unsupported in LibreLane 2 or higher: please pass the configuration file(s) directly."
+            "Passing design directories as arguments is unsupported in LibreLane: please pass the configuration file(s) directly."
         )
 
 
@@ -960,7 +960,7 @@ class Config(GenericImmutableDict[str, Any]):
                 pass
             if not isinstance(dis, int) or dis in [1, 2, 5] or dis > 6:
                 errors.append(
-                    f"DIODE_INSERTION_STRATEGY '{dis}' is not available in LibreLane 2 or higher. See 'Migrating DIODE_INSERTION_STRATEGY' in the docs for more info."
+                    f"DIODE_INSERTION_STRATEGY '{dis}' is not available in LibreLane 2.0 or higher. See 'Migrating DIODE_INSERTION_STRATEGY' in the docs for more info."
                 )
             else:
                 warnings.append(

@@ -1,6 +1,6 @@
 # Installation Overview
 
-LibreLane 2 offers two primary methods of installation: using **Nix** and using
+LibreLane offers two primary methods of installation: using **Nix** and using
 **Docker**.
 
 ## Nix (Recommended)

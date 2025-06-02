@@ -31,7 +31,7 @@ for more information.
 
 ## Creating your own project repository
 
-1. Start by creating a new repository from the Caravel user project LibreLane 2
+1. Start by creating a new repository from the Caravel user project LibreLane
    [template](https://github.com/efabless/caravel_user_project_ol2/generate).
    Let's call it `caravel_aes_accelerator`.
 

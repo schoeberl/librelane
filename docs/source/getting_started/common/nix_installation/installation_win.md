@@ -16,7 +16,7 @@
 
 
 ```{note}
-LibreLane 2 *requires* WSL2. Make sure that you're using Windows 11, or
+LibreLane *requires* WSL2. Make sure that you're using Windows 11, or
 Windows 10 is up-to-date.
 ```
 

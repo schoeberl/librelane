@@ -18,7 +18,7 @@
 # environment surveys. Please ensure all code as compatible as possible
 # with ancient versions of Python.
 
-## This file is internal to LibreLane 2 and is not part of the API.
+## This file is internal to LibreLane and is not part of the API.
 import os
 import re
 import sys

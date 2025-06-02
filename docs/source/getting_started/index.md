@@ -11,7 +11,7 @@ I am new to LibreLane
 </a></p>
 
 <p><a href="./migrants/index.html" class="link-button">
-I have previously used LibreLane 1
+I have previously used OpenLane
 </a></p>
 
 <p><a href="./installation_overview.html">
