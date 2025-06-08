@@ -19,7 +19,7 @@
   description = "open-source infrastructure for implementing chip design flows";
 
   inputs = {
-    nix-eda.url = "github:fossi-foundation/nix-eda/2.1.2";
+    nix-eda.url = "github:fossi-foundation/nix-eda/2.1.3";
     libparse.url = "github:efabless/libparse-python";
     ciel.url = "github:fossi-foundation/ciel";
     devshell.url = "github:numtide/devshell";
@@ -82,7 +82,9 @@
             yamlcore = callPythonPackage ./nix/yamlcore.nix {};
 
             # ---
-            librelane = callPythonPackage ./default.nix {};
+            librelane = callPythonPackage ./default.nix {
+              flake = self;
+            };
           })
         )
         (pkgs': pkgs: let
