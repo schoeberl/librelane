@@ -130,7 +130,7 @@ jobs:
           nix_system: x86_64-linux
           run_tests: "true"
       - name: Cache to S3
-        uses: fossi-foundation/nix-eda/.github/actions/nix_sign_cache_s3@new_cache
+        uses: fossi-foundation/nix-eda/.github/actions/nix_sign_cache_s3@main
         with:
           flake_outputs: .#packages.x86_64-linux.librelane
           nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
@@ -163,7 +163,7 @@ jobs:
           nix_system: aarch64-linux
           run_tests: "true"
       - name: Cache to S3
-        uses: fossi-foundation/nix-eda/.github/actions/nix_sign_cache_s3@new_cache
+        uses: fossi-foundation/nix-eda/.github/actions/nix_sign_cache_s3@main
         with:
           flake_outputs: .#packages.aarch64-linux.librelane
           nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
@@ -224,7 +224,7 @@ jobs:
           run_tests: "true"
           pdk_root: ${{ github.workspace }}/.ciel-sky130
       - name: Cache to S3
-        uses: fossi-foundation/nix-eda/.github/actions/nix_sign_cache_s3@new_cache
+        uses: fossi-foundation/nix-eda/.github/actions/nix_sign_cache_s3@main
         with:
           flake_outputs: .#packages.${{ matrix.os. nix}}.librelane
           nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
